@@ -1,0 +1,9 @@
+0: adding sleep with deadline 70 and duration 95
+0: adding coffee with deadline 80 and duration 20
+0: busy with sleep with deadline 70 and duration 95
+70: adding sleep with deadline 70 and duration 25
+70: adding facebook with deadline 90 and duration 35
+70: busy with sleep with deadline 70 and duration 25
+95: done with sleep (late)
+95: busy with coffee with deadline 80 and duration 20
+100: adding coffee with deadline 80 and duration 15

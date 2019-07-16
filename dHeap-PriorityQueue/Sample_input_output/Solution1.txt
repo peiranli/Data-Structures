@@ -1,0 +1,9 @@
+0: adding breakfast with deadline 1000 and duration 45
+0: adding study with deadline 1400 and duration 280
+0: adding dinner with deadline 1725 and duration 30
+0: busy with breakfast with deadline 1000 and duration 45
+45: done with breakfast
+45: busy with study with deadline 1400 and duration 280
+325: done with study
+325: busy with dinner with deadline 1725 and duration 30
+350: adding dinner with deadline 1725 and duration 5

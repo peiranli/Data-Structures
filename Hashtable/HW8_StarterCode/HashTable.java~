@@ -1,0 +1,200 @@
+
+package hw8;
+
+
+public class HashTable implements IHashTable {
+	private LinkedList<LinkedList> myList;	
+	//You will need a HashTable of LinkedLists. 
+	//You can either implement your own Node and LinkedList classes as protected classes in this file, 
+	//or use Java's LinkedList.
+	protected class Node{
+		private String elem;
+
+
+		public Node(T elem){
+			this.elem = elem;
+		}
+
+		public String getElem(){
+			return this.elem;
+		}
+
+		public void setElem(String elem){
+			this.elem = elem;
+		}
+
+	}
+
+
+	private int nelems;  //Number of element stored in the hash table
+	private int expand;  //Number of times that the table has been expanded
+	private int collision;  //Number of collisions since last expansion
+	private String statsFileName;     //FilePath for the file to write statistics upon every rehash
+	private boolean printStats = false;   //Boolean to decide whether to write statistics to file or not after rehashing
+	
+	//You are allowed to add more :)
+	
+	/**
+	 * Constructor for hash table
+	 * @param Initial size of the hash table
+	 */
+	public HashTable(int size) {
+		
+		//Initialize
+		this.nelems = 0;
+		this.expand = 0;
+		this.collision = 0;
+		myList = new LinkedList<LinkedList>();
+		for(int i = 0; i< size; i++){
+			myList.get(i) = new LinkedList<Node>();
+		}
+		
+	}
+	
+	/**
+	 * Constructor for hash table
+	 * @param Initial size of the hash table
+	 * @param File path to write statistics
+	 */
+	public HashTable(int size, String fileName){
+		
+		//Set printStats to true
+		this(size);
+		this.printStats = true;
+		this.statsFileName = fileName;
+	}
+
+	@Override
+	public boolean insert(String value) {
+		if(value == null)
+			throw new NullPointerException();	
+		int hash = hashValue(value, myList.size());
+		if(!lookup(value))
+			return false;
+		else{
+			if(myList.get(hash).size() > 0)
+				this.collision++;
+			myList.get(hash).add(new Node(value));
+			this.nelem++;
+		}
+		return true;
+		
+	}
+
+	@Override
+	public boolean delete(String value) {
+		if(value == null)
+			throw new NullPointerException();
+		int hash = hashValue(value, myList.size());
+		if(!lookup(value))
+			return false;
+		else{
+			myList.get(hash).remove(value);
+			this.nelem--;
+		}
+		return true;
+	}
+
+	@Override
+	public boolean lookup(String value) {
+		if(value == null)
+			throw new NullPointerException();
+		int hash = hashValue(value, myList.size());
+		if(!myList.get(hash).contains(value))
+			return false;
+		else 
+			return true;
+		
+	}
+
+	@Override
+	public void printTable() {
+		for(int i = 0 ; i < myList.size(); i++){
+			System.out.print(i + ": ");
+			for(int j = 0; j < myList.get(i).size(); i++){
+				System.out.print(myList.get(i).get(j)+" ");
+			}
+			System.out.println();
+		}
+	}
+	
+	@Override
+	public int getSize() {
+		return this.nelem;
+	}
+
+	private int hashValue(String key, int tableSize){
+		int hashValue = 0;
+		for(int i = 0; i < key.length; i++){
+			int leftShift = hashValue << 5;
+			int rightShift = hashValue >> 27;
+			hashValue = (leftShift | rightShift) ^ key.charAt(i);
+		}
+		return hashValue%tableSize;
+	}
+
+	private int hashValue(String key, int tableSize){
+		int hashValue = 0;
+		for(int i = 0; i < key.length(); i++){
+			int letter = key.charAt(i) - 96;
+			hashValue = (hashValue*27+letter)%tableSize;
+		}
+		return hashValue;
+	}
+	
+	//TODO - Helper methods can make your code more efficient and look neater.
+	//We expect AT LEAST the follwoing helper methods in your code
+	//expand() to enlarge the HashTable when load factor goes over the threshold
+	//rehash() to rehash the items into the table after expansion
+	//printStatistics() to print the statistics after each expansion. This method will be called only if printStats=true
+	private int longestChain(){
+		int longest = 0;
+		for(int i = 0; i < myList.size();i++){
+			if(longest < myList.get(i).size() )
+				longest = myList.get(i).size();
+		
+		}
+		return longest;
+	}
+	private double loadFactor(){
+		double sum = 0;
+		for(int i = 0; i < myList.size();i++){
+			sum += myList.get(i).size();
+		}
+		return sum/myList.size();
+	}
+	private LinkedList<LinkedList> expand(){
+		LinkedList<LinkedList> newList = new LinkedList<LinkedList>();
+		for(int i = 0; i < myList.size()*2; i++){
+			newList.get(i) = new LinkedList<Node>();
+		}
+		return newList;
+	}
+	private void rehash(){
+		LinkedList<LinkedList> newList = expand();
+		for(int i = 0; i < myList.size();i++){
+			for(int j = 0; j < myList.get(i).size(); j++){
+				String = myList.get(i).getElem();
+				int newHash = hashValue(myList.get(i).getElem(),newList.size());
+				newList.get(newHash).add(myList.get(i))
+			}
+		}
+
+
+	}
+	private void printStatistics(){
+		if(this.printStats){
+			File file = new File(this.statsFileName);
+			PrintWriter output;
+			try{
+				output = new PrintWriter(file);
+
+			}catch(FileNotFoundException ex){
+			
+			}
+		}
+		else
+			return;
+	}
+
+}

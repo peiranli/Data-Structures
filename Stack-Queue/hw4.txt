@@ -1,0 +1,14 @@
+// *
+// NAME: <Peiran Li> 
+
+// ID: <A92036065>
+// LOGIN: <cs12smz>
+// *
+
+
+in my stack class I choose the isEmpty() size() 
+addFirst() removeFirst() methods
+isEmpty is necessary for stack
+size is also necessary
+addFirst method has the same function as push
+and removeFirst has the same function as pop

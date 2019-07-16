@@ -1,0 +1,13 @@
+schedule sleep 70 95
+schedule coffee 80 20
+run 70
+schedule facebook 90 35
+run 100
+schedule supper 180 25
+schedule snack 120 20
+schedule workout 170 35
+schedule lecture 140 27
+schedule homework 110 25
+schedule read 230 45
+run 220
+run 230

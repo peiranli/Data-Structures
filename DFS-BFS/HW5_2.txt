@@ -1,0 +1,41 @@
+// *
+// NAME: <Peiran Li> 
+
+// ID: <A92036065>
+// LOGIN: <cs12smz>
+// *
+
+
+
+Part2
+Alpha: bubble sort
+Beta: insertion sort
+Gamma: selection sort
+Delta: check sort
+Epsilon: quick sort
+Zeta: merge sort
+
+I took 500 1000 2000 and find out that Delta will freeze.
+Even when the input is small and the list is inOrder, delta will take only n-1 comparisons.
+so Delta is check sort for sure
+
+Alpha is bubble sort because when input gets two times larger, the comparisons and movements will
+get four times larger approximately so it should be O(n^2)
+and when list is inOrder, it will take n comparisions and one movement
+
+Beta is insertion sort because when input gets two times larger, the comparisons and movements will
+get four times larger approximately so it should be O(n^2)
+and when list is inOrder, it will take n-1 comparisons and 2n-2 movements which matches the insertion sort algorithm
+
+Gamma is selection sort because when input gets two times larger, the comparisons and movements will
+get four times larger approximately so it should be O(n^2)
+and when list is inOrder, it only takes (n-1)+(n-2)+...+1 = n(n-1)/2 comparisons
+
+Epsilon is quick sort because when input gets two times larger, the comparisons and movements will
+get a little bit more than two times larger approximately so it should be O(nlog(n))
+and when list is inOrder, it will take n-1 movements and a lot of comparisons because it will compare low and high with every elements
+
+Zeta is merge sort because when input gets two times larger, the comparisons and movements will
+get a little bit more than two times larger approximately so it should be O(nlog(n))
+and when list is inOrder, and when input is four, the total comparison is 2+1+1 = 4, and the movements are a lot bigger than comparison
+and when input is five, the total comparison is 3+2+2 = 7 so it is merge sort

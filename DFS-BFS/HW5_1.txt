@@ -1,0 +1,85 @@
+// *
+// NAME: <Peiran Li> 
+
+// ID: <A92036065>
+// LOGIN: <cs12smz>
+// *
+
+Problem 1
+x = A[7] = 8;
+i = 0-1 = -1;
+1.
+j = 0;
+A[0] = 1 < 8 
+i = 0;
+A[0] = 1;
+2.
+j = 1;
+A[1] = 3 < 8
+i = 1;
+A[1] = 3;
+3.
+j = 2;
+A[2] = 5 < 8
+i = 2;
+A[2] = 5;
+4.
+j = 3;
+A[3] = 7 < 8
+i = 3;
+A[3] = 7;
+5.
+j = 4;
+A[4] = 9 > 8
+6.
+j = 5;
+A[5] = 2 < 8
+i = 4;
+A[4] = 2;
+A[5] = 9;
+7.
+j = 6;
+A[6] = 4 < 8
+i = 5;
+A[5] = 4;
+A[6] = 9;
+
+A[6] = 8;
+A[7] = 9;
+return 6
+
+
+Problem 2
+printInt(5)
+
+5
+4
+3
+2
+1
+
+printInt2(5)
+1
+2
+3
+4
+5
+
+Problem 3
+No because you have to shift the elements to right
+and it will take O(n) to shift
+
+Problem4
+1. No, because to find the average, you have to sum them up 
+and its will take O(n) rumtime no matter whether the values are sorted
+2. No, because to find the mod, you have to create an array to store frequency.
+And to find frequency, you have to choose one element and then loop through the whole set
+The runtime complexity would be O(n^2). If it is sorted, you still have to store frequency in an array
+by looping through the entire array. So it cannot help the runtime complexity.
+3. Yes, because to find the median, you have to find middle one in the sorted array.
+If the set is not sorted, you have to sort it first. 
+4. Yes, in this case, you can just compare with the last value and the runtime is O(1)
+5. Yes, because to determine the largest value, you have to first choose one value and compare with 
+all the rest values, the runtime would be O(n^2). But if the set is sorted, the maximum is the last one so the runtime is O(1)
+
+	
