@@ -1,4 +1,4 @@
 # Data-Structures
 
 
-Java Implementations of various basic data structures
+Java implementations of various basic data structures
